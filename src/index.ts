@@ -1,13 +1,13 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 
+const id = process.env.SEVER_ID, port = 3000
+
 const app = new Hono()
 
-app.get('/', (c) => c.text('Hello NGINX'))
+app.get('/', (c) => c.text(`Hello NGINX ${id}`))
 
-const port = 3000
-
-console.log("Server is running on http://localhost:" + port)
+console.log(`Server ${id} is running on http://localhost:${port}`)
 
 serve({
     fetch: app.fetch,

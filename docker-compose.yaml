@@ -1,0 +1,21 @@
+services:
+    server-a:
+        build: .
+        ports:
+            - "3001:3000"
+        environment:
+            - SEVER_ID=001
+
+    server-b:
+        build: .
+        ports:
+            - "3002:3000"
+        environment:
+            - SEVER_ID=002
+
+    server-c:
+        build: .
+        ports:
+            - "3003:3000"
+        environment:
+            - SEVER_ID=003
