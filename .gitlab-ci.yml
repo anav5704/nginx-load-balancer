@@ -1,0 +1,18 @@
+build:
+    image: docker:20.10.24
+
+    services:
+        - docker:20.10.24-dind
+
+    variables:
+        - DOCKER_TLS_CERTDIR: "/certs"
+        - IMAGE_NAME: anav5704/hono-server 
+        - IMAGE_TAG: gitlab
+
+    before_script:
+        - apt upgrade && apt update
+        - docker login -u $DOCKER_USER -p $DOCKER_PSWD
+
+      script:
+        - docker build -t $IMAGE_NAME:$IMAGE_TAG .
+        - docker push $IMAGE_NAME:$IMAGE_TAG
