@@ -32,7 +32,7 @@ deploy:
         - chmod 400 $SSH_KEY
 
     script:
-        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@158.178.138.155 "
+        - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@$HOST_NAME "
           docker login -u $DOCKER_USER -p $DOCKER_PSWD &&
           docker ps -aq | xargs --no-run-if-empty docker stop &&
           docker ps -aq | xargs --no-run-if-empty docker rm &&
