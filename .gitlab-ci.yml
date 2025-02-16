@@ -34,6 +34,6 @@ deploy:
     script:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@$HOST_NAME "
           docker login -u $DOCKER_USER -p $DOCKER_PSWD &&
-          docker-compose -f down &&
-          docker-compose -f pull &&
-          docker-compose -f up -d"
+          docker-compose down &&
+          docker-compose pull &&
+          docker-compose up -d"
