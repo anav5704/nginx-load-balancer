@@ -1,21 +1,24 @@
 services:
     server-a:
-        build: .
+        image: anav5704/hono-server:gitlab
+        restart: always
         ports:
             - "3001:3000"
         environment:
-            - SEVER_ID=001
+            - SERVER_ID=001
 
     server-b:
-        build: .
+        image: anav5704/hono-server:gitlab
+        restart: always
         ports:
             - "3002:3000"
         environment:
-            - SEVER_ID=002
+            - SERVER_ID=002
 
     server-c:
-        build: .
+        image: anav5704/hono-server:gitlab
+        restart: always
         ports:
             - "3003:3000"
         environment:
-            - SEVER_ID=003
+            - SERVER_ID=003
