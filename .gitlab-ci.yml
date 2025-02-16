@@ -34,6 +34,6 @@ deploy:
     script:
         - ssh -o StrictHostKeyChecking=no -i $SSH_KEY ubuntu@$HOST_NAME "
           docker login -u $DOCKER_USER -p $DOCKER_PSWD &&
-          docker ps -aq | xargs --no-run-if-empty docker stop &&
-          docker ps -aq | xargs --no-run-if-empty docker rm &&
-          docker run -d -p 3000:3000 $IMAGE_NAME:$IMAGE_TAG"
+          docker-compose down &&
+          docker-compose pull &&
+          docker-compose up -d"
