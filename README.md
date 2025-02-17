@@ -1,8 +1,8 @@
 # Nginx Load  Balancer
 
-![Architecture Diagram](./docs/architecture.png)
+This is a simple Nginx load balancer that runs against 3 Docker containers. Each container runs a simple [Hono.js](https://hono.dev) server on port `3000`, while Docker compose is used to map these ports to `3001`, `3002` and `3003`. This load balancer is deployed on Oracle Cloud using Terraform to provision a VM and Ansible to configure the VM.
 
-This is a simple Nginx load balancer that runs against 3 Docker containers. Each container runs a simple [Hono.js](https://hono.dev) server on port `3000`, while Docker compose is used to map these ports to `3001`, `3002` and `3003`.
+![Architecture Diagram](./docs/architecture.png)
 
 
 ## Technologies Used
@@ -11,6 +11,8 @@ This is a simple Nginx load balancer that runs against 3 Docker containers. Each
 - Docker
 - Docker Compose
 - Hono JS
+- Terraform [view source](https://github.com/anav5704/learning-terraform)
+- Ansible [view source](https://github.com/anav5704/learning-ansible)
 
 ## Getting Started
 
@@ -27,7 +29,7 @@ docker-compose up --build -d
 
 ### Configure Nginx
 
-Next, you need to replace the default `nginx.conf` on your machine with the one provided in this repo. This file should be located at `C:/nginx/conf/nginx.conf` on Windows and `/etc/nginx/nginx.conf` on MacOS. 
+Next, you need to replace the default `nginx.conf` on your machine with the one provided in this [here](https://github.com/anav5704/learning-ansible/blob/main/config/nginx.conf). This file should be located at `C:/nginx/conf/nginx.conf` on Windows and `/etc/nginx/nginx.conf` on MacOS. 
 
 
 Then, start up Nginx on Windows using:
